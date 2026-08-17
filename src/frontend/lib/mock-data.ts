@@ -146,7 +146,7 @@ function classSplit(total: number): Record<VehicleClass, number> {
 
 export const sessions: SessionRecord[] = Array.from({ length: 42 }, (_, i) => {
   const day = 17 - (i % 14);
-  const cam = cameras[i % cameras.length];
+  const cam = cameras[i % cameras.length]!;
   const incoming = 480 + ((i * 137) % 620);
   const outgoing = 430 + ((i * 91) % 540);
   return {

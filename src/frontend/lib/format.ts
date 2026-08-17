@@ -21,7 +21,7 @@ export function formatDateTime(iso: string) {
 
 export function toCsv(rows: Record<string, string | number>[]) {
   if (rows.length === 0) return "";
-  const headers = Object.keys(rows[0]);
+  const headers = Object.keys(rows[0] as Record<string, string | number>);
   const body = rows.map((r) => headers.map((h) => JSON.stringify(r[h] ?? "")).join(","));
   return [headers.join(","), ...body].join("\n");
 }
