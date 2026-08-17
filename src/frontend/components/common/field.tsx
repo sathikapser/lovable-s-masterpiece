@@ -12,11 +12,11 @@ export function Field({
   className,
 }: {
   label: string;
-  hint?: string;
-  error?: string;
-  required?: boolean;
+  hint?: string | undefined;
+  error?: string | undefined;
+  required?: boolean | undefined;
   children: (props: { id: string; "aria-describedby": string; "aria-invalid": boolean }) => React.ReactNode;
-  className?: string;
+  className?: string | undefined;
 }) {
   const id = useId();
   const describedBy = `${id}-desc`;
