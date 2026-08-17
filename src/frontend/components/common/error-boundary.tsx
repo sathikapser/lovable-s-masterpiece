@@ -8,17 +8,17 @@ interface State {
 
 /** Global error boundary for stream/API failures. */
 export class AppErrorBoundary extends Component<{ children: ReactNode }, State> {
-  state: State = { error: null };
+  override state: State = { error: null };
 
   static getDerivedStateFromError(error: Error): State {
     return { error };
   }
 
-  componentDidCatch(error: Error, info: ErrorInfo) {
+  override componentDidCatch(error: Error, info: ErrorInfo) {
     console.error("[TollGrid] uncaught UI error", error, info.componentStack);
   }
 
-  render() {
+  override render() {
     if (this.state.error) {
       return (
         <div className="panel-hard m-6 space-y-3 p-6">
